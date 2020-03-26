@@ -1,0 +1,79 @@
+:volu hall BOX 10*m 10*m 10*m G4_AIR
+:rotm r000 0 0 0
+:rotm r100 30 0 0
+:rotm r110 180 0 0
+:vis hall OFF 
+
+//BOX
+//X half length, Y half length, Z half length
+
+:volu box BOX 3*cm 4*cm 3*cm G4_Ge
+:place box 1 hall r000 0*cm 0*cm 0*cm
+:color box 0.2 0.4 0.8
+
+//TUBE
+//Inner radius, Outer radius, Half length in z
+
+:volu tube TUBE 2*cm 3*cm 4*cm G4_Ge
+:place tube 1 hall r000 0*cm 0*cm 10*cm
+:color tube 0.5 0.4 0.8
+
+//TUBS
+//Inner radius, Outer radius, Half length in Z, Starting phi angle, Delta angle of the segment
+
+:volu tubesec TUBS 1*cm 2*cm 3*cm 20 120 G4_Ge
+:place tubesec 1 hall r000 0*cm 0*cm -10*cm
+:color tubesec 0.5 0.4 0.2
+
+//CONE
+//Inner radius at -fDz, Inner radius at +fDz, Outer radius -fDz, Outer radius +fDz, Half length in z(=fDz)
+:volu cone CONE 1*cm 2*cm 3*cm 4*cm 3*cm G4_Ge
+:place cone 1 hall r000 10*cm 0*cm 0*cm
+:color cone 0.1 0.4 0.2
+
+//CONS
+//Inner radius at =fDz, Inner radius at +fDz, Outer radius -fDz, Outer radius +fDz, Half length in z(=fDz), Starting angle of the segment, Delta angle of the segment
+:volu conesec CONS 1*cm 2*cm 3*cm 4*cm 3*cm 30 90 G4_Ge
+:place conesec 1 hall r000 -10*cm 0*cm 0*cm
+:color conesec 0.1 0.5 0.2
+
+//TRD
+//Half-length along x at the surface positioned at -dz, Half-length along x at the surface positioned at +dz, Half-length along y at the surface positioned at -dz, Half-length along y at the surface positioned at +dz, Half-length along z axis
+:volu trap TRD 2*cm 3*cm 1*cm 2*cm 3*cm G4_Ge
+:place trap 1 hall r000 0*cm 10*cm 0*cm
+:color trap 0.3 0.4 0.2
+
+//PARA
+//Half-length along x at the surface positioned at -dz, Half-length along x at the surface positioned at +dz, Half-length along y at the surface positioned at -dz, Angle formed by the y axis and by the plane joining the centre of the faces G4Parallel to the z-x plane at -dy and +dy, Polar angle of the line joining the centres of the faces at -dz and +dz in z, Azimuthal angle of the line joining the centres of the faces at -dz and +dz in z Half-length along y at the surface positioned at +dz
+:volu para PARA 1*cm 2*cm 3*cm 20 30 40 G4_Ge
+:place para 1 hall r000 0*cm -10*cm 0*cm
+:color para 0.3 0.4 0.2
+
+//TRAP
+//Half-length along the z-axis (=pDz), Polar angle of the line joining the centres of the faces at -/+pDz, Azimuthal angle of the line joining the centre of the face at -pDzto the centre of the face at +pDz, Half-length along y of the face at -pDz (=pDy1), Half-length along x of the side at y=-pDy1 of the face at -pDz,Half-length along x of the side at y=+pDy1 of the face at -pDz, Angle with respect to the y axis from the centre of the side at y=-pDy1 to the centre at y=+pDy1 of the face at -pDz, Half-length along y of the face at +pDz (=pDy2), Half-length along x of the side at y=-pDy2 of the face at +pDz, Half-length along x of the side at y=+pDy2 of the face at +pDz, Angle with respect to the y axis from thecentre of the side at y=-pDy2 to the centre at y=+pDy2 of the face at +pDz
+:volu gtrap TRAP 6*cm 20 5 4*cm 3*cm 4*cm 10 1.6*cm 1*cm 1.4*cm 10 G4_Ge
+:place gtrap 1 hall r100 20*cm 20*cm 20*cm
+:color gtrap 0.3 0.2 0.2
+
+//SPHERE
+//Inner radius, Outer radius, Starting angle of the segment, Delta angle of the segment, Theta starting angle of the segment, Theta delta angle of the segment
+:volu sphere SPHERE 1*cm 3*cm 30 45 35 60 G4_Ge
+:place sphere 1 hall r000 -20*cm 20*cm 20*cm
+:color sphere 0.1 0.4 0.8
+
+//ORB
+//Outer radius
+:volu orb ORB 4*cm G4_Ge
+:place orb 1 hall r000 20*cm -20*cm 20*cm
+:color orb 0.1 0.4 0.1
+
+//TORUS
+//Inside radius, Outside radius, Swept radius of torus, Starting Phi angle (fSPhi+fDPhi <= 2PI, fSPhi > -2PI), Delta angle of the segment
+:volu torus TORUS 2*cm 4*cm 7*cm 45 60 G4_Ge
+:place torus 1 hall r100 20*cm 20*cm -20*cm
+:color torus 0.1 0.4 0.3
+
+//POLYCONE
+//Initial phi starting angle, Total phi angle, Number of z planes or Number of rz points
+//For each z plane: Position of z plane, Tangent distance to outer surface, Half-length along the z-axis
+//For each rz corner: R coordinate of these corners, Z coordinate of these corners
