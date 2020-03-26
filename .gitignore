@@ -29,7 +29,8 @@ gxml
 
 # backup files
 \#*
-.swp
+*.swp
+*.swo
 *~
 
 # Data
