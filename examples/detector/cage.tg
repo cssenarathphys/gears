@@ -1,0 +1,16 @@
+:volu hall BOX 10*m 10*m 10*m G4_AIR
+:rotm r000 0 0 0
+:vis hall OFF
+
+:solid base BOX 2*m 2*m 2*m 
+:solid inner1 BOX 3*m 1.5*m 1.5*m
+:solid inner2 BOX 1.5*m 3*m 1.5*m
+:solid inner3 BOX 1.4999*m 1.4999*m 3*m 
+
+:solid base1 SUBTRACTION base inner1 r000 0 0 0
+:solid base2 SUBTRACTION base1 inner2 r000 0 0 0
+:solid final SUBTRACTION base2 inner3 r000 0 0 0
+
+:volu cage final G4_BRASS
+:place cage 1 hall r000 0 0 0
+:color cage 0.4 0.4 0.4
